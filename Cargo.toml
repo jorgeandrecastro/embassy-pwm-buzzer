@@ -1,0 +1,40 @@
+# Copyright (C) 2026 Jorge Andre Castro
+# GPL-2.0-or-later
+
+[package]
+edition      = "2024"
+name         = "embassy-pwm-buzzer"
+version      = "0.1.0"
+authors      = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
+description  = "Driver asynchrone pour buzzer passif (piezo) via PWM matériel, basé sur Embassy."
+documentation = "https://docs.rs/embassy-pwm-buzzer"
+readme       = "README.md"
+keywords     = ["embassy", "pwm", "buzzer", "audio", "no-std"]
+categories   = ["embedded", "no-std", "hardware-support"]
+license      = "GPL-2.0-or-later"
+repository   = "https://github.com/jorgeandrecastro/embassy-pwm-buzzer"
+
+[lib]
+name = "embassy_pwm_buzzer"
+path = "src/lib.rs"
+
+[dependencies]
+embassy-rp = { version = "0.10" }
+embassy-time = { version = "0.5" }
+defmt = { version = "1.0", optional = true }
+
+[features]
+default = []
+# Features de redirection vers embassy-rp
+rp2040 = ["embassy-rp/rp2040"]
+rp235xa = ["embassy-rp/rp235xa"]
+rp235xb = ["embassy-rp/rp235xb"]
+# Support optionnel de defmt
+defmt = ["dep:defmt"]
+
+[profile.release]
+opt-level     = "z"
+lto           = true
+codegen-units = 1
+panic         = "abort"
+strip         = true
