@@ -4,7 +4,7 @@
 [package]
 edition      = "2024"
 name         = "embassy-pwm-buzzer"
-version      = "0.1.0"
+version      = "0.2.0"
 authors      = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
 description  = "Driver asynchrone pour buzzer passif (piezo) via PWM matériel, basé sur Embassy."
 documentation = "https://docs.rs/embassy-pwm-buzzer"
@@ -38,3 +38,9 @@ lto           = true
 codegen-units = 1
 panic         = "abort"
 strip         = true
+
+[package.metadata.docs.rs]
+default-target = "thumbv8m.main-none-eabihf"
+targets = ["thumbv8m.main-none-eabihf"]
+no-default-features = true
+features = ["rp235xa"]

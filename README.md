@@ -25,7 +25,7 @@ Conçu pour l'écosystème [Embassy](https://embassy.dev), ce driver permet de g
 Ajoutez ceci à votre `Cargo.toml` :
 ```toml
 [dependencies]
-embassy-pwm-buzzer = { version = "0.1.0", features = ["rp235xa"] } # ou "rp2040" ou "rp235xb"
+embassy-pwm-buzzer = { version = "0.2.0", features = ["rp235xa"] } # ou "rp2040" ou "rp235xb"
 embassy-rp = "0.10"
 embassy-time = "0.5"
 ```
